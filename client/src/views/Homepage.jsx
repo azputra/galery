@@ -9,11 +9,15 @@ import logohut from "../assets/logohut.png";
 import logori from "../assets/logori.png";
 
 function Homepage(props) {
-    useEffect(() => { }, []);
+    useEffect(() => {
+        window.scrollTo((document.body.offsetWidth - document.documentElement.offsetWidth) / 2, (document.body.offsetHeight - document.documentElement.offsetHeight) / 2)
+    }, []);
     const [showDetail, setShowDetail] = useState(false)
-    const [showIndex, setIndex] = useState(false)
+    const [showIndex, setIndex] = useState(0)
     const [showAbout, setAbout] = useState(false)
-    const [dataDetail] = useState(
+    const [imageType, setImageType] = useState("")
+    // data virtual photoshoot
+    const [dataDetailVP] = useState(
         [
             {
                 image: one,
@@ -24,11 +28,83 @@ function Homepage(props) {
                 image: painting1,
                 nama: "Gde Agus Dwijaya K.",
                 bidang: "Biru"
-            }
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
         ]
     )
 
-    const handleShowDetail = (index) => {
+    // data lifepainting
+    const [dataDetailLP] = useState(
+        [
+            {
+                image: one,
+                nama: "Afriezal Raeshandi",
+                bidang: "Merah"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+            {
+                image: painting1,
+                nama: "Gde Agus Dwijaya K.",
+                bidang: "Biru"
+            },
+        ]
+    )
+
+    const handleShowDetail = (index, image) => {
+        setImageType(image)
         setIndex(index)
         setShowDetail(true)
     };
@@ -43,7 +119,19 @@ function Homepage(props) {
             {
                 !showDetail && !showAbout ?
                     <div class="gallery">
-                        <div className="container-fluid pl-5 pr-5" style={{ zIndex: "99", display: "inline-block", position: "absolute", width: "100", fontFamily: 'Alata', top: "0vh", paddingTop: "1vh" }}>
+                        {/* loop foto kiri */}
+                        <div className="gallery__group">
+                            {
+                                dataDetailVP.map((item, index) => {
+                                    return (
+                                        <img key={index} on onClick={() => handleShowDetail(index, "VP")} width="350" height="250" className="img_hov gallery__img" src={item.image} alt="" style={{ marginRight: "18vh" }} />
+                                    )
+                                })
+                            }
+                        </div>
+
+                        {/* Ruangseni Ippebi KALO ADA PERUBAHAN FOTO UBAH MARGIN LEFT INI AJA */}
+                        <div className="container-fluid pl-5 pr-5 home-ippebi" style={{ marginLeft: "700vh" }}>
                             <div className="row text-center d-flex justify-content-center" style={{ marginBottom: "3vh" }}>
                                 <h3 style={{
                                     padding: "0.5vh",
@@ -80,11 +168,13 @@ function Homepage(props) {
                                 <span style={{ fontSize: "30px", position: "absolute", bottom: "-10vh" }}>&#8592; scroll to explore &#8594;</span>
                             </div>
                         </div >
-                        <div className="gallery__group">
+
+                        {/* looping foto kanan */}
+                        <div className="gallery__group" style={{ marginLeft: "315vh" }}>
                             {
-                                dataDetail.map((item, index) => {
+                                dataDetailLP.map((item, index) => {
                                     return (
-                                        <img key={index} onClick={() => handleShowDetail(index)} width="350" height="250" className="img_hov gallery__img" src={item.image} alt="" />
+                                        <img key={index} onClick={() => handleShowDetail(index, "LP")} width="350" height="250" className="img_hov gallery__img" src={item.image} alt="" style={{ marginRight: "18vh" }} />
                                     )
                                 })
                             }
@@ -94,7 +184,7 @@ function Homepage(props) {
             }
             {
                 showDetail ?
-                    <DetailGalery handleCloseDetail={handleCloseDetail} dataDetail={dataDetail[showIndex]} />
+                    <DetailGalery handleCloseDetail={handleCloseDetail} dataDetail={imageType === "VP" ? dataDetailVP[showIndex] : dataDetailLP[showIndex]} imageType={imageType} />
                     :
                     <div style={{ display: "none" }}></div>
             }
