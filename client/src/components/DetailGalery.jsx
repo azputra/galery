@@ -63,12 +63,12 @@ function Detail(props) {
               <b> Bidang </b>    : {props.dataDetail.bidang}
             </p>
           </div>
-          <div className="row">
+          {/* <div className="row">
             <p className="m-0 text-justify"><b> Juara </b>   : 1</p>
           </div>
           <div className="row">
             <p className="m-0 mb-4 text-justify"><b> Medali </b> : Emas</p>
-          </div>
+          </div> */}
           <div className="row">
             {
               props.imageType === "VP" ?
@@ -84,7 +84,9 @@ function Detail(props) {
                   kebolehannya dengan menghasilkan foto-foto berkualitas.
             </p>
                 :
-                <p>Live Painting</p>
+                <p className="text-justify">
+                  Untuk pertama kalinya, BI menyelenggarakan lomba melukis secara langsung yang dapat diikuti perwakilan pegawai dari seluruh nusantara. Lomba Live Painting Digifestabi 2020 diselenggarakan secara secara virtual di hadapan juri melalui video conference. Para seniman lukis BI hanya diberi waktu 120 menit untuk mulai menyusun hingga mengunggah foto karyanya. Waktu yang singkat terbukti tak menjadi halangan untuk terciptanya sebuah karya yang menggugah, yang mengambil sudut pandang digitalisasi Bank Indonesia, kecintaan pada negeri, atau optimisme di tengah pandemi.
+            </p>
             }
           </div>
         </div>
@@ -92,7 +94,7 @@ function Detail(props) {
       <div class="heart"></div>
       <div className="row fixed-bottom" style={{ left: "5vh" }}>
         <p style={{ cursor: "pointer" }} onClick={props.handleCloseDetail}>
-          ⬅️ Ruang Seni IPEBI
+        &#8592; <b>Ruang Seni IPEBI</b>s
         </p>
       </div>
     </div>

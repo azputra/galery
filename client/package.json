@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "homepage": "http://glaceon.rapidplex.com",
     "bootstrap": "^4.5.2",
     "mobx": "^5.15.6",
     "mobx-react": "^6.2.5",

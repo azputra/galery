@@ -10,6 +10,10 @@ import {
   Route
 } from 'react-router-dom'
 
+window.onload = () => {
+  window.scrollTo(24176, 0);
+};
+
 function App() {
   return (
     <Router>
