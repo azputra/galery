@@ -4,12 +4,15 @@
   background-size: 200vh 100vh;
 } */
 
+.hov-about:hover{
+  background-color: rgba(255, 255, 255, 0.267);
+}
+
 html,
 body {
   height: 100%;
   font-family: alata;
 }
-
 
 body {
   margin: 0;
@@ -54,4 +57,29 @@ body {
 .img_hov:hover{
   will-change: transform;
   transform: perspective(300px) rotateX(2deg) rotateY(1deg);
+}
+
+.heart {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 40%;
+  top: 85%;
+  transform: translate(-50%, -50%);
+  background: url(https://cssanimation.rocks/images/posts/steps/heart.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  animation: fave-heart 1s steps(28);
+}
+.heart:hover {
+  background-position: -2800px 0;
+  transition: background 1s steps(28);
+}
+@keyframes fave-heart {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2800px 0;
+  }
 }

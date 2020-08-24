@@ -5,16 +5,17 @@ import logori from "../assets/logori.png";
 // import painting from '../assets/painting.jpg'
 
 function Detail(props) {
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   console.log(props);
   return (
     <div
       className="container-fluid pl-4 pt-4"
       style={{
-        position: "fixed",
         backgroundColor: "#c8c4c4",
-        zIndex: "999",
+        // position: "fixed",
         height: "100%",
+        backgroundRepeat: "repeat-x",
+        backgroundSize: "193vh 100vh"
       }}
     >
       <div className="row">
@@ -40,14 +41,15 @@ function Detail(props) {
           />
         </div>
       </div>
-      <div className="row p-5">
+      <div className="row p-3">
         <div className="col" style={{ minWidth: "78vh" }}>
           <img
             src={props.dataDetail.image}
             className="img-fluid float-left"
             width="550"
-            height="1000"
+            height="900"
             alt="painting"
+            style={{ maxHeight: "71vh" }}
           />
         </div>
         <div
@@ -57,7 +59,6 @@ function Detail(props) {
           <div className="row">
             <h2><b>{props.dataDetail.nama}</b></h2>
           </div>
-            <p>{props}</p>
           <div className="row">
             <p className="m-0 mt-4 text-justify">
               <b> Bidang </b>    : {props.dataDetail.bidang}
@@ -84,6 +85,7 @@ function Detail(props) {
           </div>
         </div>
       </div>
+      <div class="heart"></div>
       <div className="row fixed-bottom" style={{ left: "5vh" }}>
         <p style={{ cursor: "pointer" }} onClick={props.handleCloseDetail}>
           ⬅️ Ruang Seni IPEBI
