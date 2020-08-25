@@ -67,7 +67,7 @@ body {
 .home-ippebi{
   z-index: 99;
   display: inline-block;
-  position: absolute;
+  /* position: absolute; */
   width: 100;
   font-family: 'Alata';
   top: 0vh; 

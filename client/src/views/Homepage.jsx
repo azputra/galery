@@ -78,8 +78,10 @@ import tujuhbelas from "../assets/tujuhbelas.png"
 
 function Homepage(props) {
     useEffect(() => {
-        window.scrollTo((document.body.offsetWidth - document.documentElement.offsetWidth) / 2, (document.body.offsetHeight - document.documentElement.offsetHeight) / 2)
-    }, []);
+        window.onload = () => {
+            window.scrollTo(23500, 0);
+        };
+    }, [showDetail, showAbout]);
     const [showDetail, setShowDetail] = useState(false)
     const [showIndex, setIndex] = useState(0)
     const [showAbout, setAbout] = useState(false)
@@ -476,7 +478,7 @@ function Homepage(props) {
                         </div>
 
                         {/* Ruangseni Ippebi KALO ADA PERUBAHAN FOTO UBAH MARGIN LEFT INI AJA */}
-                        <div className="container-fluid pl-5 pr-5 home-ippebi" style={{ marginLeft: "3474vh", color: 'white' }}>
+                        <div className="container-fluid pl-5 pr-5 home-ippebi" style={{ color: 'white', width: "191vh" }}>
                             <div className="row text-center d-flex justify-content-center" style={{ marginBottom: "3vh" }}>
                                 <h3 style={{
                                     padding: "0.5vh",
@@ -498,10 +500,10 @@ function Homepage(props) {
                                 justifyContent: "space-between",
                                 maxHeight: "1vh"
                             }}>
-                                <div className="col-6" style={{ minWidth: "26vh", maxWidth: "26vh", left: "0vh", bottom: "5vh", zIndex: "99" }}>
+                                <div className="col-6" style={{ minWidth: "26vh", maxWidth: "26vh", left: "0vh", bottom: "6vh", zIndex: "99" }}>
                                     <h2 className="text-right font-weight-bold">Virtual Photoshoot</h2>
                                 </div>
-                                <div className="col-6" style={{ minWidth: "26vh", right: "0vh", maxWidth: "26vh", bottom: "5vh", zIndex: "99" }}>
+                                <div className="col-6" style={{ minWidth: "26vh", right: "0vh", maxWidth: "26vh", bottom: "6vh", zIndex: "99" }}>
                                     <h2 className="text-left font-weight-bold">Live Painting</h2>
                                 </div>
                             </div>
@@ -510,12 +512,12 @@ function Homepage(props) {
                                 justifyContent: "center",
                                 maxHeight: "1vh"
                             }}>
-                                <span style={{ fontSize: "20px", position: "absolute", bottom: "-10vh" }}>&#8592; scroll to explore &#8594;</span>
+                                <span style={{ fontSize: "20px", bottom: "-10vh" }}>&#8592; scroll to explore &#8594;</span>
                             </div>
                         </div >
 
                         {/* looping foto kanan */}
-                        <div className="gallery__group" style={{ marginLeft: "315vh" }}>
+                        <div className="gallery__group" style={{ marginLeft: "18vh" }}>
                             {
                                 dataDetailLP.map((item, index) => {
                                     return (
