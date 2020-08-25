@@ -7,52 +7,41 @@ import logori from "../assets/logori.png";
 function Detail(props) {
   useEffect(() => { }, []);
   return (
-    <div
-      className="container-fluid pl-4 pt-4"
-      style={{
-        backgroundColor: "#c8c4c4",
-        // position: "fixed",
-        height: "100%",
-      }}
-    >
-      <div className="row">
-        <div className="col-1" style={{ minWidth: "15vh" }}>
+    <div className="container-fluid pl-4 pt-4 galeri-detail height-100">
+      <div className="row d-flex justify-content-start">
+        <div className="col fit-content">
           <img
             src={logoipebi}
-            className="img-fluid w-10 float-left"
+            className="img-fluid float-left logo-ipebi"
             alt="logoipebi"
           />
         </div>
-        <div className="col-1" style={{ minWidth: "15vh" }}>
+        <div className="col fit-content">
           <img
             src={logohut}
-            className="img-fluid w-10 float-left"
+            className="img-fluid float-left logohut"
             alt="logohut"
           />
         </div>
-        <div className="col-1" style={{ minWidth: "20vh" }}>
+        <div className="col fit-content">
           <img
             src={logori}
-            className="img-fluid w-10 float-left"
+            className="img-fluid float-left logori"
             alt="logori"
           />
         </div>
       </div>
       <div className="row p-3">
-        <div className="col" style={{ minWidth: "78vh" }}>
+        <div className="col fit-content">
           <img
             src={props.dataDetail.image}
-            className="img-fluid float-left"
+            className="img-fluid float-left max-height-img"
             width="550"
             height="900"
             alt="painting"
-            style={{ maxHeight: "71vh" }}
           />
         </div>
-        <div
-          className="col px-3"
-          style={{ minWidth: "72vh", marginLeft: "1.5vh" }}
-        >
+        <div className="col px-3 ml-1_5">
           <div className="row">
             <h2><b>{props.dataDetail.nama}</b></h2>
           </div>
@@ -87,15 +76,17 @@ function Detail(props) {
             </p>
             }
           </div>
+          <div className="row d-flex justify-content-center">
+            <div className="heart"></div>
+          </div>
         </div>
       </div>
-      <div className="heart"></div>
-      <div className="row fixed-bottom" style={{ left: "5vh" }}>
-        <p style={{ cursor: "pointer" }} onClick={props.handleCloseDetail}>
-          &#8592; <b>Ruang Seni IPEBI</b>s
+      <div className="row tombol-back">
+        <p className="cursor-pointer" onClick={props.handleCloseDetail}>
+          &#8592; <b>Ruang Seni IPEBI</b>
         </p>
       </div>
-    </div>
+    </div >
   );
 }
 

@@ -81,6 +81,7 @@ function Homepage(props) {
     const [showIndex, setIndex] = useState(0)
     const [showAbout, setAbout] = useState(false)
     const [imageType, setImageType] = useState("")
+    const [jmlScroll, setJmlScroll] = useState(23500)
     useEffect(() => {
         window.scrollTo(23500, 0);
     }, [showDetail, showAbout]);
@@ -458,9 +459,26 @@ function Homepage(props) {
         setAbout(true)
     };
     const handleCloseAbout = () => setAbout(false);
+    const eventWheel = (e) => {
+        let nilai = 0
+        if (e.deltaY < 0) {
+            nilai += 100
+            if (jmlScroll > 0) {
+                setJmlScroll(jmlScroll - nilai)
+            }
+            window.scrollTo(jmlScroll, 0);
+        } else {
+            nilai += 100
+            if (jmlScroll < 31700) {
+                setJmlScroll(jmlScroll + nilai)
+            }
+            window.scrollTo(jmlScroll, 0);
+        }
+        console.log(jmlScroll);
+    }
 
     return (
-        <div style={{ height: showDetail ? "auto" : "100%" }}>
+        <div style={{ height: "100%" }} onWheel={e => { eventWheel(e) }}>
             {
                 !showDetail && !showAbout ?
                     <div className="gallery">
@@ -476,7 +494,7 @@ function Homepage(props) {
                         </div>
 
                         {/* Ruangseni Ippebi KALO ADA PERUBAHAN FOTO UBAH MARGIN LEFT INI AJA */}
-                        <div className="container-fluid pl-5 pr-5 home-ippebi" style={{ color: 'white', width: "191vh" }}>
+                        <div className="container-fluid pl-5 pr-5 home-ippebi" style={{ color: 'white', width: "191vh", height: "100%" }}>
                             <div className="row text-center d-flex justify-content-center" style={{ marginBottom: "3vh" }}>
                                 <h3 style={{
                                     padding: "0.5vh",
@@ -536,26 +554,48 @@ function Homepage(props) {
             {
                 showAbout ?
                     <div className="container-fluid p-4" style={{
-                        position: "fixed",
                         backgroundColor: "#c8c4c4",
                         zIndex: "999",
                         height: "100%"
                     }}>
-                        <div className="row" style={{ position: "fixed", top: "0vh" }}>
-                            <div className="col">
-                                <h1 style={{ position: "fixed", top: "10vh", fontFamily: "alata" }}><b>DIGIFESTABI 2020</b></h1>
+                        <div className="row" style={{
+                            display: "flex",
+                            justifyContent: "flex-end"
+                        }}>
+                            <div className="col fit-content">
+                                <img
+                                    src={logoipebi}
+                                    className="img-fluid float-left"
+                                    alt="logoipebi"
+                                    style={{ height: "7vh" }}
+                                />
                             </div>
-                            <div className="col-1" style={{ minWidth: "15vh" }}>
-                                <img src={logoipebi} className="img-fluid w-10 float-left" alt="logoipebi" />
+                            <div className="col fit-content">
+                                <img
+                                    src={logohut}
+                                    className="img-fluid float-left"
+                                    alt="logohut"
+                                    style={{ height: "7.2vh" }}
+                                />
                             </div>
-                            <div className="col-1" style={{ minWidth: "15vh" }}>
-                                <img src={logohut} className="img-fluid w-10 float-left" alt="logohut" />
-                            </div>
-                            <div className="col-1" style={{ minWidth: "20vh" }}>
-                                <img src={logori} className="img-fluid w-10 float-left" alt="logori" />
+                            <div className="col fit-content">
+                                <img
+                                    src={logori}
+                                    className="img-fluid float-left"
+                                    alt="logori"
+                                    style={{
+                                        height: "6vh",
+                                        marginTop: "0.8vh"
+                                    }}
+                                />
                             </div>
                         </div>
-                        <div className="row" style={{ position: "fixed", top: "20vh", padding: "4vh", maxWidth: "100vh" }}>
+                        <div className="row" style={{ marginTop: "7vh" }}>
+                            <div className="col">
+                                <h1 style={{ fontFamily: "alata" }}><b>DIGIFESTABI 2020</b></h1>
+                            </div>
+                        </div>
+                        <div className="row" style={{ padding: "4vh", maxWidth: "100vh" }}>
                             <p>
                                 Inovasi lahir dari sebuah kebutuhan. Meski diwarnai pandemi, bukan berarti produktivitas terhenti di 2020.
                                 Memperingati HUT BI ke-67 dan HUT RI ke-75, Bank Indonesia tetap menyelenggarakan Festival Talenta Bank Indonesia <b>(FESTABI)</b>, dalam bentuk virtual. Digifestabi 2020 menghadirkan berbagai inovasi kegiatan berbasis teknologi virtual, termasuk lomba-lomba di bidang seni. Pemanfaatan infrastruktur digital pun ternyata memberi nilai tambah; kegiatan kini tak hanya milik pegawai di Kantor Pusat, namun mampu melibatkan seluruh keluarga besar Bank Indonesia di kantor perwakilan, baik dalam maupun luar negeri.
@@ -563,7 +603,10 @@ function Homepage(props) {
 
                             </p>
                         </div>
-                        <div className="row fixed-bottom" style={{ left: "5vh" }}>
+                        <div className="row" style={{
+                            marginTop: "20vh",
+                            marginLeft: "1vh"
+                        }}>
                             <p style={{ cursor: "pointer" }} onClick={handleCloseAbout}>
                                 &#8592; Ruang Seni IPEBI
                             </p>
