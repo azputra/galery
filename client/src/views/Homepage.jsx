@@ -131,7 +131,7 @@ function Homepage(props) {
                         </div>
 
                         {/* Ruangseni Ippebi KALO ADA PERUBAHAN FOTO UBAH MARGIN LEFT INI AJA */}
-                        <div className="container-fluid pl-5 pr-5 home-ippebi" style={{ marginLeft: "700vh" }}>
+                        <div className="container-fluid pl-5 pr-5 home-ippebi" style={{ marginLeft: "775vh" }}>
                             <div className="row text-center d-flex justify-content-center" style={{ marginBottom: "3vh" }}>
                                 <h3 style={{
                                     padding: "0.5vh",

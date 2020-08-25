@@ -13,8 +13,6 @@ function Detail(props) {
         backgroundColor: "#c8c4c4",
         // position: "fixed",
         height: "100%",
-        backgroundRepeat: "repeat-x",
-        backgroundSize: "193vh 100vh"
       }}
     >
       <div className="row">

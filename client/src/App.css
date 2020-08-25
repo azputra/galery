@@ -16,7 +16,6 @@ body {
 
 body {
   margin: 0;
-  width: 1000%;
 }
 #root{
   height: 100%;
@@ -58,6 +57,10 @@ body {
 .img_hov:hover{
   will-change: transform;
   transform: perspective(300px) rotateX(2deg) rotateY(1deg);
+  -webkit-transform: perspective(300px) rotateX(2deg) rotateY(1deg);
+  -moz-transform: perspective(300px) rotateX(2deg) rotateY(1deg);
+  -ms-transform: perspective(300px) rotateX(2deg) rotateY(1deg);
+  -o-transform: perspective(300px) rotateX(2deg) rotateY(1deg);
 }
 
 .home-ippebi{
