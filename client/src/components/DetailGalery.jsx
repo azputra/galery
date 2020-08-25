@@ -89,10 +89,10 @@ function Detail(props) {
           </div>
         </div>
       </div>
-      <div class="heart"></div>
+      <div className="heart"></div>
       <div className="row fixed-bottom" style={{ left: "5vh" }}>
         <p style={{ cursor: "pointer" }} onClick={props.handleCloseDetail}>
-        &#8592; <b>Ruang Seni IPEBI</b>s
+          &#8592; <b>Ruang Seni IPEBI</b>s
         </p>
       </div>
     </div>

@@ -77,15 +77,13 @@ import enambelas from "../assets/enambelas.png"
 import tujuhbelas from "../assets/tujuhbelas.png"
 
 function Homepage(props) {
-    useEffect(() => {
-        window.onload = () => {
-            window.scrollTo(23500, 0);
-        };
-    }, [showDetail, showAbout]);
     const [showDetail, setShowDetail] = useState(false)
     const [showIndex, setIndex] = useState(0)
     const [showAbout, setAbout] = useState(false)
     const [imageType, setImageType] = useState("")
+    useEffect(() => {
+        window.scrollTo(23500, 0);
+    }, [showDetail, showAbout]);
     // data virtual photoshoot
     const [dataDetailVP] = useState(
         [
@@ -465,7 +463,7 @@ function Homepage(props) {
         <div style={{ height: showDetail ? "auto" : "100%" }}>
             {
                 !showDetail && !showAbout ?
-                    <div class="gallery">
+                    <div className="gallery">
                         {/* loop foto kiri */}
                         <div className="gallery__group">
                             {
@@ -487,7 +485,7 @@ function Homepage(props) {
                                 }} className="font-weight-bold m-0 hov-about" onClick={handleShowAbout}>About</h3>
                             </div>
                             <div className="row pl-5 pr-5 d-flex justify-content-center">
-                                <video src={XDVideo} className="img-fluid" width="430" height="1000" alt="painting" autoplay="true" style={{ minWidth: "64vh", minHeight: "64vh" }} />
+                                <video src={XDVideo} className="img-fluid" width="430" height="1000" alt="painting" autoPlay loop style={{ minWidth: "64vh", minHeight: "64vh" }} />
                             </div>
                             <div className="row text-center" style={{ marginTop: "-15vh" }}>
                                 <h1 className="font-weight-bold w-100 m-0" style={{ zIndex: "99", fontSize: "6.6vh" }}>RUANG SENI</h1>
